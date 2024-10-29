@@ -15,4 +15,12 @@ class ProdukController extends Controller
     public function index_add() {
         return view('auth.produk-add');
     }
+
+    public function add(Request $req) {
+        $req->validate([
+            'name' => ['required', 'string'],
+            'route' => ['required', 'string']
+        ]);
+        return redirect()->back();
+    }
 }
