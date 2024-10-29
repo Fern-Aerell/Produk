@@ -20,10 +20,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
         ]);
 
-        // Settings
-        Setting::create([
-            'logo' => null,
-            'title' => 'Produk'
+        $this->call([
+            ProdukSeeder::class,
+            FeatureSeeder::class
         ]);
     }
 }

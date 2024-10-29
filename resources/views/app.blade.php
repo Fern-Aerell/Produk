@@ -1,19 +1,32 @@
 @extends('layouts.doc')
 
 @section('sidebar')
-<x-app-logo />
+<!-- LOGO AND TITLE -->
+<a class="flex flex-row gap-3 items-center" href="{{ route('app') }}">
+    <x-app-logo />
+    <h1 class="text-[30px] font-bold text-red-500">Produk</h1>
+</a>
+<!-- MENU -->
 <x-sidebar-menu-container>
-    <x-sidebar-menu>
-        Garuda Kasir
+    @foreach($produks as $produk)
+    <x-sidebar-menu id="{{ $produk->id }}">
+        {{$produk->name}}
         @slot('submenu')
-        <x-sidebar-submenu-activate>Installation</x-sidebar-submenu-activate>
-        <x-sidebar-submenu>Configurasi</x-sidebar-submenu>
-        <x-sidebar-submenu>Directory Structure</x-sidebar-submenu>
+        @foreach($produk->features as $feature)
+        <x-sidebar-submenu
+            href="{{ route('app.produk.feature', [$produk->route, $feature->route]) }}"
+            :activate=" request()->routeIs('app.produk.feature') &&
+            request()->route('produk') === $produk->route &&
+            request()->route('feature') === $feature->route">{{ $feature->name }}</x-sidebar-submenu>
+        @endforeach
         @endslot
     </x-sidebar-menu>
+    @endforeach
 </x-sidebar-menu-container>
 @endsection
 
 @section('mainbar')
-<h1 class="text-4xl font-semibold">Installation</h1>
+@if($content)
+{!! $content !!}
+@endif
 @endsection

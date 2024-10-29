@@ -1,4 +1,4 @@
-@props(['title' => null, 'subtitle' => null])
+@props(['title' => null])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -9,13 +9,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>
+        Produk 
         @if($title)
-        {{ $title }}
-        @if($subtitle)
-        - {{$subtitle}}
-        @endif
-        @else
-        {{ config('app.name', 'Produk') }}
+        - {{ $title }}
         @endif
     </title>
 
