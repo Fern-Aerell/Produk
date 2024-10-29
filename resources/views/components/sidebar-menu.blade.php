@@ -1,5 +1,7 @@
-<div x-data="{ open: false }" class="select-none">
-    <p @click="open = !open" class="font-semibold py-2 hover:cursor-pointer transition-all hover:ml-1">
+@props(['id' => ''])
+
+<div x-data="{ open: JSON.parse(localStorage.getItem('sidebarOpen{{ $id }}')) || false }" class="select-none">
+    <p @click="open = !open; localStorage.setItem('sidebarOpen{{ $id }}', open)" class="font-semibold py-2 hover:cursor-pointer transition-all hover:ml-1">
         {{ $slot }}
     </p>
 

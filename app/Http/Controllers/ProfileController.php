@@ -17,16 +17,8 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        $setting = Setting::first();
-        if($setting) {
-            $title = $setting->title;
-        }else{
-            $title = '';
-        }
-
         return view('profile.edit', [
-            'user' => $request->user(),
-            'title' => $title,
+            'user' => $request->user()
         ]);
     }
 

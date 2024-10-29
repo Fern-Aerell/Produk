@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        @yield('title')
-        @hasSection('subtitle') - @yield('subtitle') @endif
+        Produk @hasSection('subtitle') - @yield('subtitle') @endif
     </title>
 
     <!-- Scripts -->
@@ -16,7 +15,7 @@
 <body>
     <div class="flex flex-row">
         <!-- SIDEBAR -->
-        <div class="flex flex-col w-fit p-10 pr-16">
+        <div class="flex flex-col min-w-[300px] p-10 pr-16">
             @yield('sidebar')
         </div>
         <!-- MAINBAR -->
