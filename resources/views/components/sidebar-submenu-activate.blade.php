@@ -1,0 +1,1 @@
+<li class="list-disc marker:text-red-500 hover:cursor-pointer py-1 transition-all hover:ml-1">{{ $slot }}</li>
