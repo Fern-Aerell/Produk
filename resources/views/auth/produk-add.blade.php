@@ -10,7 +10,7 @@
         </div>
 
         <!-- Route -->
-        <div>
+        <div class="mt-4">
             <x-input-label for="route" value="Nama route produk" />
             <x-text-input id="route" class="block mt-1 w-full" type="text" name="route" :value="old('route')" required autofocus autocomplete="route" />
             <x-input-error :messages="$errors->get('route')" class="mt-2" />
