@@ -2,9 +2,9 @@
 
 @section('sidebar')
 <!-- LOGO AND TITLE -->
-<a class="flex flex-row gap-3 items-center" href="{{ route('app') }}">
+<a class="flex flex-row gap-3 w-full items-center" href="{{ route('app') }}">
     <x-app-logo />
-    <h1 class="text-[30px] font-bold text-red-500">{{ config('app.name', 'Produk') }}</h1>
+    <h1 class="text-[30px] font-bold text-red-500 truncate">{{ config('app.name', 'Produk') }}</h1>
 </a>
 <!-- MENU -->
 <x-sidebar-menu-container>
@@ -27,6 +27,20 @@
 
 @section('mainbar')
     @if($content)
-        {!! $content !!}
+        <iframe id="rich-text-content" class="w-full h-full" frameborder="0"></iframe>
+        <script>
+            const content = `{!! $content !!}`;
+            const iframe = document.getElementById('rich-text-content').contentDocument;
+
+            iframe.open();
+            iframe.write(`
+                <link rel="stylesheet" href="/tinymce/skins/content/default/content.min.css">
+                <link rel="stylesheet" href="/tinymce/skins/ui/oxide/content.min.css">
+                <body style="padding:2.5rem;">
+                    <div style="max-width: 64rem;">${content}</div>
+                </body>
+            `);
+            iframe.close();
+        </script>
     @endif
 @endsection

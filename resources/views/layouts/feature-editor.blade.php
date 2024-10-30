@@ -8,7 +8,6 @@
     <title>{{ config('app.name', 'Produk') }}</title>
 
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
