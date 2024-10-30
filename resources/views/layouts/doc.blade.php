@@ -14,9 +14,9 @@
 </head>
 
 <body>
-    <div class="flex flex-row w-screen h-screen">
+    <div class="flex flex-row w-screen h-screen overflow-hidden">
         <!-- SIDEBAR -->
-        <div class="flex flex-col p-10 min-w-[300px] bg-slate-100 border w-fit">
+        <div class="flex flex-col p-10 h-full min-w-[300px] bg-slate-100 border w-fit fixed lg:static overflow-y-auto">
             @yield('sidebar')
         </div>
         <!-- MAINBAR -->
