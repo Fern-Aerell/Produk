@@ -26,7 +26,7 @@
 @endsection
 
 @section('mainbar')
-@if($content)
-{!! $content !!}
-@endif
+    @if($content)
+        {!! $content !!}
+    @endif
 @endsection

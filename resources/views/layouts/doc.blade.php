@@ -8,7 +8,7 @@
         Produk @hasSection('subtitle') - @yield('subtitle') @endif
     </title>
 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -17,12 +17,14 @@
 <body>
     <div class="flex flex-row">
         <!-- SIDEBAR -->
-        <div class="flex flex-col min-w-[300px] p-10 pr-16">
+        <div class="flex flex-col min-w-[300px] p-10 pr-16 bg-slate-50 border border-gray-300 overflow-x-hidden overflow-y-auto">
             @yield('sidebar')
         </div>
         <!-- MAINBAR -->
-        <div class="w-full h-screen bg-slate-100 p-10">
-            @yield('mainbar')
+        <div class="quill-content w-full h-screen overflow-x-hidden overflow-y-auto bg-white p-10">
+            <div class="max-w-5xl">
+                @yield('mainbar')
+            </div>
         </div>
     </div>
 </body>
