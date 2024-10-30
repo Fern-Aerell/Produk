@@ -4,7 +4,7 @@
 <!-- LOGO AND TITLE -->
 <a class="flex flex-row gap-3 items-center" href="{{ route('app') }}">
     <x-app-logo />
-    <h1 class="text-[30px] font-bold text-red-500">Produk</h1>
+    <h1 class="text-[30px] font-bold text-red-500">{{ config('app.name', 'Produk') }}</h1>
 </a>
 <!-- MENU -->
 <x-sidebar-menu-container>
