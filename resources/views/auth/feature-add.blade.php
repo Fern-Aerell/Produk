@@ -1,9 +1,6 @@
 @extends('layouts.feature-editor')
 
 @section('content')
-<!-- Include stylesheet -->
-<link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
-
 <form method="POST" action="{{ route('feature.add') }}">
     @csrf
 

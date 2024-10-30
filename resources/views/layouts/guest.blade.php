@@ -1,4 +1,4 @@
-@props(['title' => null])
+@props(['title' => null, 'subtitle' => null])
 
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
@@ -6,15 +6,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-
-        <title>
-            Produk 
-            @if($title)
-            - {{ $title }}
-            @endif
-        </title>
+        <title>{{ config('app.name', 'Produk') }}</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
