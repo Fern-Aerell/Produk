@@ -1,2 +1,2 @@
 @props(['class' => null])
-<div class="bg-red-500 w-[40px] h-[40px] @if($class) {{ $class }} @endif"></div>
+<img src="/favicon.ico" alt="icon" class="w-[40px] h-[40px] @if($class) {{ $class }} @endif">
