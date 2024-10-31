@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -60,4 +61,5 @@ Route::middleware('auth')->group(function () {
     Route::post('register', [RegisteredUserController::class, 'store']);
 
     Route::post('image/upload', [ImageController::class, 'upload'])->name('image.upload');
+    Route::post('video/upload', [VideoController::class, 'upload'])->name('video.upload');
 });
