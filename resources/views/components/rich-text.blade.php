@@ -28,9 +28,41 @@
         // File picker untuk upload media
         file_picker_callback: (callback, value, meta) => {
             if (meta.filetype === 'image') {
-                callback('https://example.com/image.jpg', {
-                    alt: 'Deskripsi gambar'
-                });
+                // Buat input untuk memilih file
+                const input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
+
+                // Event saat user memilih file
+                input.onchange = () => {
+                    const file = input.files[0];
+
+                    // Buat FormData untuk upload
+                    const formData = new FormData();
+                    formData.append('image', file);
+
+                    // Kirim AJAX POST ke endpoint Laravel
+                    fetch('/image/upload', {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                            }
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            // Set URL yang didapat dari response ke callback
+                            callback(data.url, {
+                                alt: file.name
+                            });
+                        })
+                        .catch(error => {
+                            console.error('Upload error:', error);
+                        });
+                };
+
+                // Buka dialog file input
+                input.click();
             }
         },
     });
