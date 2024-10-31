@@ -37,7 +37,7 @@
                 <link rel="stylesheet" href="/tinymce/skins/content/default/content.min.css">
                 <link rel="stylesheet" href="/tinymce/skins/ui/oxide/content.min.css">
                 <body style="padding:2.5rem;">
-                    <div style="max-width: 64rem;">${content}</div>
+                    ${content}
                 </body>
             `);
             iframe.close();
